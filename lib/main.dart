@@ -2,7 +2,9 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:reprofutureloader/future_use_widget.dart';
+import 'package:reprofutureloader/failing_future_example.dart';
+
+import 'label.dart';
 
 void main() => runApp(AppRoot());
 
@@ -12,7 +14,26 @@ class AppRoot extends StatelessWidget {
     return MaterialApp(
         home: Container(
             color: Colors.white,
-            child: Center(child: FutureUseWidget(generator: _generateRandomInt))
+            child: DefaultTabController(
+              length: 2,
+              child: Scaffold(
+                appBar: AppBar(
+                  title: Text('FutureBuilder example'),
+                  bottom: TabBar(
+                    tabs: <Widget>[
+                      Tab(icon: Icon(Icons.mood_bad), text: 'Not working'),
+                      Tab(icon: Icon(Icons.mood), text: 'Working'),
+                    ],
+                  ),
+                ),
+                body: TabBarView(
+                  children: <Widget>[
+                    Center(child: FailingFutureExample(generator: _generateRandomInt)),
+                    Center(child: Label('Nice one'))
+                  ],
+                )
+              ),
+            )
         )
     );
   }

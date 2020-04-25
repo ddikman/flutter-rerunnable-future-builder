@@ -6,16 +6,16 @@ import 'label.dart';
 
 typedef Future<int> FutureGenerator();
 
-class FutureUseWidget extends StatefulWidget {
+class FailingFutureExample extends StatefulWidget {
   final FutureGenerator generator;
 
-  const FutureUseWidget({Key key, this.generator}) : super(key: key);
+  const FailingFutureExample({Key key, this.generator}) : super(key: key);
 
   @override
-  _FutureUseWidgetState createState() => _FutureUseWidgetState();
+  _FailingFutureExampleState createState() => _FailingFutureExampleState();
 }
 
-class _FutureUseWidgetState extends State<FutureUseWidget> {
+class _FailingFutureExampleState extends State<FailingFutureExample> {
   Future<int> _future;
 
   @override
