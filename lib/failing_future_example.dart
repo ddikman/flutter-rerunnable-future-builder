@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:reprofutureloader/future_generator.dart';
 import 'package:reprofutureloader/result_view.dart';
 
 import 'button.dart';
 import 'label.dart';
-
-typedef Future<int> FutureGenerator();
 
 class FailingFutureExample extends StatefulWidget {
   final FutureGenerator generator;

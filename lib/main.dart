@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:reprofutureloader/failing_future_example.dart';
+import 'package:reprofutureloader/working_future_example.dart';
 
 import 'label.dart';
 
@@ -29,7 +30,7 @@ class AppRoot extends StatelessWidget {
                 body: TabBarView(
                   children: <Widget>[
                     Center(child: FailingFutureExample(generator: _generateRandomInt)),
-                    Center(child: Label('Nice one'))
+                    Center(child: WorkingFutureExample(generator: _generateRandomInt))
                   ],
                 )
               ),
