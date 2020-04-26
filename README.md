@@ -17,18 +17,20 @@ When trying to re-run the future, replacing it with a new one, we hit the issue 
 In addition to only detecting the state based on `hasData` and `hasError` also make sure to look at the `connectionState`, if it is in `waiting`, the future is still running.
 
 ```dart
-FutureBuilder(
+final builder = FutureBuilder(
     future: _future,
     builder: (context, snapshot) {
-      if (snapshot.hasData && snapshot.connectionState != ConnectionState.waiting) {
-        return _buildDataView();
+      if (snapshot.connectionState != ConnectionState.done) {
+        return _buildLoader();
       }
       if (snapshot.hasError) {
         return _buildError();
       }
-      return _buildLoader();
-    });
-})
+      if (snapshot.hasData) {
+        return _buildDataView();
+      }     
+      return _buildNoData();
+});
 ```    
 
 ## issue

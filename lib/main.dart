@@ -5,14 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:reprofutureloader/failing_future_example.dart';
 import 'package:reprofutureloader/working_future_example.dart';
 
-import 'label.dart';
-
 void main() => runApp(AppRoot());
 
 class AppRoot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Container(
             color: Colors.white,
             child: DefaultTabController(
@@ -40,7 +39,7 @@ class AppRoot extends StatelessWidget {
   }
 
   Future<int> _generateRandomInt() {
-    return Future.delayed(Duration(seconds: 2), () {
+    return Future.delayed(Duration(milliseconds: 500), () {
       final number = Random().nextInt(1000);
       if (number > 500) {
         throw new Exception("Error");

@@ -43,15 +43,15 @@ class ReRunnableFutureBuilder extends StatelessWidget {
     return FutureBuilder(
         future: _future,
         builder: (context, snapshot) {
-          if (snapshot.hasData && snapshot.connectionState != ConnectionState.waiting) {
-            return ResultView(
-                text: "Result: ${snapshot.data}", onRerun: onRerun);
+          if (snapshot.connectionState != ConnectionState.done) {
+            return Label("Loading..");
           }
           if (snapshot.hasError) {
             return ResultView(
                 text: snapshot.error.toString(), onRerun: onRerun);
           }
-          return Label("Loading..");
+          return ResultView(
+              text: "Result: ${snapshot.data}", onRerun: onRerun);
         });
   }
 }
