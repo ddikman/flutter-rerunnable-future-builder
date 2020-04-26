@@ -53,3 +53,13 @@ This happens in the `didUpdateWidget` which afterwards also rebuilds the compone
     }
   }
 ```
+
+## example view
+
+Not future builder working, `hasData` and `hasError` is not cleared:
+
+![not working example](./not-working.gif)
+
+Working example, using `ConnectionState`:
+
+![working example](./working.gif)
