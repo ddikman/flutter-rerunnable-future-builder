@@ -1,5 +1,7 @@
 # using the future loader
 
+Shows how to reset the FutureBuilder with a new future.
+
 The future loader is an excellent way to easily handle the three render states of a an async operation:
 
 1. Loading
