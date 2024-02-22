@@ -8,14 +8,14 @@ import 'label.dart';
 class WorkingFutureExample extends StatefulWidget {
   final FutureGenerator generator;
 
-  const WorkingFutureExample({Key key, this.generator}) : super(key: key);
+  const WorkingFutureExample({Key? key, required this.generator}) : super(key: key);
 
   @override
   _WorkingFutureExampleState createState() => _WorkingFutureExampleState();
 }
 
 class _WorkingFutureExampleState extends State<WorkingFutureExample> {
-  Future<int> _future;
+  Future<int>? _future;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class _WorkingFutureExampleState extends State<WorkingFutureExample> {
       return Button('Run', onPressed: _runFuture);
     }
 
-    return ReRunnableFutureBuilder(_future, onRerun: _runFuture);
+    return ReRunnableFutureBuilder(_future as Future<int>, onRerun: _runFuture);
   }
 
   _runFuture() {
@@ -34,9 +34,9 @@ class _WorkingFutureExampleState extends State<WorkingFutureExample> {
 
 class ReRunnableFutureBuilder extends StatelessWidget {
   final Future<int> _future;
-  final Function onRerun;
+  final Function() onRerun;
 
-  const ReRunnableFutureBuilder(this._future, { this.onRerun });
+  const ReRunnableFutureBuilder(this._future, { required this.onRerun });
   
   @override
   Widget build(BuildContext context) {
