@@ -6,9 +6,9 @@ import 'label.dart';
 
 class ResultView extends StatelessWidget {
   final String text;
-  final Function onRerun;
+  final Function() onRerun;
 
-  const ResultView({Key key, this.text, this.onRerun}) : super(key: key);
+  const ResultView({Key? key, required this.text, required this.onRerun}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

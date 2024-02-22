@@ -8,14 +8,14 @@ import 'label.dart';
 class FailingFutureExample extends StatefulWidget {
   final FutureGenerator generator;
 
-  const FailingFutureExample({Key key, this.generator}) : super(key: key);
+  const FailingFutureExample({Key? key, required this.generator}) : super(key: key);
 
   @override
   _FailingFutureExampleState createState() => _FailingFutureExampleState();
 }
 
 class _FailingFutureExampleState extends State<FailingFutureExample> {
-  Future<int> _future;
+  Future<int>? _future;
 
   @override
   Widget build(BuildContext context) {
